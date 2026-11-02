@@ -4,6 +4,14 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Surya &amp; Anagha · Wedding Invitation</title>
+<meta name="description" content="Surya ❤️ Anagha · Wedding on 20 November 2026, Kannur · Reception on 22 November 2026, Morappur. Use the key to open the doors 🔑">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://haridass9489.github.io/surya-anagha-wedding/">
+<meta property="og:title" content="💍 Surya ❤️ Anagha · Wedding Invitation">
+<meta property="og:description" content="You are invited! Wedding · 20 Nov 2026, Kannur · Reception · 22 Nov 2026, Morappur. 🔑 Use the key to open the doors">
+<meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/a/a3/Agalvilaku.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#240a12">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Great+Vibes&family=Cinzel:wght@500&display=swap" rel="stylesheet">
 <style>
   body { margin: 0; background: #12050a; }
@@ -511,6 +519,27 @@
   .content .band { border: 0; background: transparent; -webkit-mask: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent); mask: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent); }
   .hero__bg { -webkit-mask-image: linear-gradient(#000 60%, transparent); mask-image: linear-gradient(#000 60%, transparent); }
 
+  .share-btn { margin-top: 26px; padding: 14px 30px; border: 0; border-radius: 999px; cursor: pointer; font-family: "Cinzel", serif; font-size: 15px; letter-spacing: .06em; color: #2a1206; background: linear-gradient(135deg, #fff1c9, #c99a45); box-shadow: 0 10px 28px rgba(0,0,0,.45), 0 0 24px rgba(243,196,107,.35); transition: transform .25s; }
+  .share-btn:hover { transform: translateY(-3px); }
+  .share-fab { position: fixed; right: 16px; bottom: 16px; z-index: 40; width: 52px; height: 52px; border: 0; border-radius: 50%; cursor: pointer; font-size: 22px; background: #25d366; color: #fff; box-shadow: 0 8px 22px rgba(0,0,0,.45); opacity: 0; pointer-events: none; transition: opacity .6s, transform .25s; }
+  .revealed .share-fab { opacity: 1; pointer-events: auto; }
+  .share-fab:hover { transform: scale(1.08); }
+
+  .kicker { color: #f3d48a; }
+  .gold-text { background-image: linear-gradient(100deg, #e9c27a 0%, #fff1c9 25%, #f0cf86 50%, #fff7e0 75%, #e9c27a 100%); }
+  .gold .ch { background-image: linear-gradient(180deg, #fff7e0, #e9c27a); }
+  .msg, .side p, .side ul, .detail, .tl__item span { color: #fff3dc; }
+  .side .addr, .detail em, .foot { color: #f1e2c6; }
+  .side .parents small, .side h4, .detail small, .datebig .dow, .datebig .mon, .kt__side small, .hero .cd span { color: #f6d88f; opacity: 1; }
+  .gp li { color: #fff3dc; background: rgba(243,220,164,.12); }
+  .datebig b { background-image: linear-gradient(180deg, #fff7e0, #e9c27a); }
+  @media (max-width: 780px) {
+    .kicker, .msg, .blessing, .side p, .side ul, .gp li, .detail, .foot, .kt__side small, .datebig .mon, .datebig .dow { text-shadow: 0 1px 3px rgba(0,0,0,.9), 0 0 10px rgba(0,0,0,.6); }
+    .kicker { font-size: 13px; }
+    .detail small, .side .parents small, .side h4, .kt__side small { font-size: 11px; }
+    .side .addr, .detail em { font-size: 16px; }
+  }
+
   @media (max-width: 1100px) {
     .content { padding: 0 96px; }
     .rail { width: 86px; }
@@ -686,6 +715,7 @@
       <p class="msg split words">“Your presence and blessings will make our celebration truly special.”</p>
       <p class="closing-names script split gold" style="--d:.6s">Surya &amp; Anagha</p>
       <p class="foot rv" data-fx="up" style="--d:1.2s">With love from both families</p>
+      <button class="share-btn rv" data-fx="up" style="--d:1.4s" id="shareBtn" type="button">💌 Share this invitation</button>
     </section>
   </main>
 </div>
@@ -1176,6 +1206,22 @@
   gateEl.addEventListener("keydown", (e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); startOpen(); } });
 
   const target = new Date(events[0].iso).getTime();
+  const shareUrl = "https://haridass9489.github.io/surya-anagha-wedding/";
+  const shareText = "💍✨ You are Invited!! ✨💍\nWhere?? 🤔\n👇\n" + shareUrl + "\n\n🔑 Use the key to open the doors 🚪✨";
+  const doShare = async () => {
+    if (navigator.share) {
+      try { await navigator.share({ title: "Surya ❤️ Anagha · Wedding Invitation", text: shareText.replace(shareUrl, "").trim(), url: shareUrl }); return; } catch (e) { if (e && e.name === "AbortError") return; }
+    }
+    window.open("https://wa.me/?text=" + encodeURIComponent(shareText), "_blank", "noopener");
+  };
+  const fab = document.createElement("button");
+  fab.className = "share-fab";
+  fab.type = "button";
+  fab.setAttribute("aria-label", "Share this invitation on WhatsApp");
+  fab.textContent = "💬";
+  root.appendChild(fab);
+  fab.addEventListener("click", doShare);
+  root.querySelector("#shareBtn").addEventListener("click", doShare);
   const cells = {};
   root.querySelectorAll(".cd b").forEach((b) => { cells[b.dataset.u] = b; });
   const chips = root.querySelectorAll(".chip");
