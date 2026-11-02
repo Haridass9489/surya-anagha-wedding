@@ -596,6 +596,31 @@
   .fam-hearts i:nth-child(3) { left: 68%; font-size: 12px; animation-delay: -2.6s; }
   @keyframes heartUp { 0% { transform: translateY(0) scale(.6); opacity: 0; } 20% { opacity: 1; } 100% { transform: translateY(-100px) scale(1.1); opacity: 0; } }
 
+  .intro { position: fixed; inset: 0; z-index: 55; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 20px; background: radial-gradient(circle at 50% 50%, #5a1a26 0%, #2b0a12 55%, #160608 100%); pointer-events: none; transition: opacity 1s ease, transform 1.2s ease; }
+  .intro-out .intro { opacity: 0; transform: scale(1.12); }
+  .revealed .intro { display: none; }
+  .intro__glow { position: absolute; inset: 0; background: radial-gradient(circle, rgba(255,214,140,.45), transparent 55%); opacity: 0; }
+  .opened .intro__glow { animation: introGlow 3s ease-out forwards; }
+  @keyframes introGlow { 0% { opacity: 0; transform: scale(.6); } 40% { opacity: 1; } 100% { opacity: .6; transform: scale(1.1); } }
+  .intro__ring { position: absolute; left: 50%; top: 50%; width: min(540px, 92vw); aspect-ratio: 1; border-radius: 50%; opacity: 0; transform: translate(-50%, -50%) scale(.4); background: repeating-conic-gradient(rgba(255,214,140,.28) 0 3deg, transparent 3deg 12deg); -webkit-mask: radial-gradient(circle, transparent 46%, #000 48%, #000 62%, transparent 64%); mask: radial-gradient(circle, transparent 46%, #000 48%, #000 62%, transparent 64%); }
+  .opened .intro__ring { animation: introRing 4s ease-out forwards; }
+  @keyframes introRing { 0% { opacity: 0; transform: translate(-50%, -50%) scale(.4) rotate(0); } 40% { opacity: 1; } 100% { opacity: .85; transform: translate(-50%, -50%) scale(1) rotate(90deg); } }
+  .intro__welcome { position: relative; margin: 0; font-family: "Cinzel", serif; font-size: clamp(11px, 2vw, 15px); letter-spacing: .3em; text-transform: uppercase; color: #ffbe5c; text-shadow: 0 0 12px rgba(255,160,50,.7); opacity: 0; }
+  .opened .intro__welcome { animation: introUp 1s ease .9s forwards; }
+  .intro__names { position: relative; display: flex; align-items: center; gap: .25em; margin: 12px 0; font-size: clamp(48px, 10vw, 96px); line-height: 1.2; color: #ffd36b; text-shadow: 0 2px 3px rgba(0,0,0,.9), 0 0 16px rgba(255,205,90,.9), 0 0 40px rgba(255,160,40,.5); }
+  .intro__names span { opacity: 0; }
+  .opened .intro__names span:first-child { animation: introL 1.2s cubic-bezier(.2,.8,.2,1) 1.3s forwards; }
+  .opened .intro__names span:last-child { animation: introR 1.2s cubic-bezier(.2,.8,.2,1) 1.3s forwards; }
+  .intro__names b { font-size: .5em; color: #e11d48; text-shadow: 0 0 14px #fb7185, 0 0 30px rgba(225,29,72,.6); transform: scale(0); }
+  .opened .intro__names b { animation: introPop .6s cubic-bezier(.3,1.6,.5,1) 2.2s forwards, beat 1.6s ease-in-out 2.9s infinite; }
+  .intro__date { position: relative; margin: 0; font-family: "Cinzel", serif; font-size: clamp(16px, 3vw, 24px); letter-spacing: .3em; color: #ffe6a8; text-shadow: 0 0 12px rgba(255,205,90,.7); opacity: 0; }
+  .opened .intro__date { animation: introUp 1s ease 2.6s forwards; }
+  @keyframes introUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: none; } }
+  @keyframes introL { from { opacity: 0; transform: translateX(-60px); filter: blur(8px); } to { opacity: 1; transform: none; filter: none; } }
+  @keyframes introR { from { opacity: 0; transform: translateX(60px); filter: blur(8px); } to { opacity: 1; transform: none; filter: none; } }
+  @keyframes introPop { to { transform: scale(1); } }
+  @media (prefers-reduced-motion: reduce) { .intro { display: none; } }
+
   @media (max-width: 1100px) {
     .content { padding: 0 96px; }
     .rail { width: 86px; }
@@ -673,6 +698,14 @@
       </svg>
     </div>
   </section>
+
+  <div class="intro" aria-hidden="true">
+    <div class="intro__glow"></div>
+    <div class="intro__ring"></div>
+    <p class="intro__welcome">Welcome to the wedding of</p>
+    <p class="intro__names script"><span>Surya</span><b>♥</b><span>Anagha</span></p>
+    <p class="intro__date">20 · 11 · 2026</p>
+  </div>
 
   <main class="content">
     <div class="divine art" data-art="divine" aria-hidden="true"></div>
@@ -1239,11 +1272,12 @@
     setTimeout(() => {
       root.querySelectorAll(".content .scene:not(.hero)").forEach((sc) => sc.classList.add("pg"));
       root.querySelectorAll(".rv, .split, .diyas, .pg").forEach((el) => io.observe(el));
-    }, reduce ? 0 : 900);
+    }, reduce ? 0 : 4300);
+    setTimeout(() => { root.classList.add("intro-out"); }, reduce ? 0 : 4000);
     setTimeout(() => {
       root.classList.add("revealed");
       document.documentElement.style.overflow = "";
-    }, reduce ? 0 : 2600);
+    }, reduce ? 0 : 5100);
   }
   const startOpen = () => {
     if (root.classList.contains("unlocking")) return;
