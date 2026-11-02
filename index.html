@@ -545,6 +545,14 @@
   .gold-text, .ql, .side h3, .closing-names { filter: drop-shadow(0 1px 2px rgba(0,0,0,.8)) drop-shadow(0 0 10px rgba(255,214,140,.6)) drop-shadow(0 0 22px rgba(255,170,60,.3)); }
   .datebig b, .hero .cd b { filter: drop-shadow(0 2px 3px rgba(0,0,0,.85)) drop-shadow(0 0 14px rgba(255,214,140,.75)) drop-shadow(0 0 28px rgba(255,170,60,.4)); }
 
+  .hero .names .gold { filter: none; animation: none; }
+  .hero .names .gold .ch { background: none; color: #ffd970; -webkit-text-fill-color: #ffd970; text-shadow: 0 2px 3px rgba(0,0,0,.9), 0 0 10px rgba(255,205,90,.95), 0 0 26px rgba(255,170,40,.7), 0 0 48px rgba(255,140,20,.4); animation: goldLight 3.5s ease-in-out infinite; }
+  @keyframes goldLight { 50% { text-shadow: 0 2px 3px rgba(0,0,0,.9), 0 0 14px rgba(255,220,120,1), 0 0 34px rgba(255,180,50,.85), 0 0 64px rgba(255,150,30,.5); } }
+  .hero .names .amp { color: #ffd970; -webkit-text-fill-color: #ffd970; text-shadow: 0 2px 3px rgba(0,0,0,.9), 0 0 14px rgba(255,205,90,.9); }
+  .hero .cd b { background: none; color: #ffd970; -webkit-text-fill-color: #ffd970; filter: none; text-shadow: 0 2px 3px rgba(0,0,0,.9), 0 0 12px rgba(255,205,90,.95), 0 0 30px rgba(255,170,40,.6); }
+  .hero .cd span, .hero .cd i, .hero .bigdate, .hero .kicker { color: #ffd970; -webkit-text-fill-color: #ffd970; text-shadow: 0 1px 2px rgba(0,0,0,.9), 0 0 10px rgba(255,205,90,.85), 0 0 22px rgba(255,170,40,.45); opacity: 1; }
+  .hero .blessing { color: #fff6dc; }
+
   @media (max-width: 1100px) {
     .content { padding: 0 96px; }
     .rail { width: 86px; }
