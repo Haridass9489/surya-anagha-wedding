@@ -660,6 +660,16 @@
   @keyframes nameSpark { 0%, 100% { opacity: 0; transform: scale(.3) rotate(0); } 45% { opacity: 1; transform: scale(1.2) rotate(90deg); } 60% { opacity: .9; transform: scale(.9) rotate(120deg); } }
   @media (prefers-reduced-motion: reduce) { .inv .hero .names .gold .ch { animation: none !important; background-position: 50% 0 !important; } .hero .names .script::before, .hero .names .script::after { display: none; } }
 
+  .inv.opened .door--l, .inv.opened .door--r { transform: none !important; }
+  .inv.opened .gate { opacity: 0; visibility: hidden; transition: opacity .7s ease, visibility 0s linear .7s !important; }
+  .inv.opened .gate::before { animation: none; }
+  .inv .intro__half { transition: transform 2.6s cubic-bezier(.45,0,.2,1), opacity 1s ease 1.9s !important; }
+  .inv .intro__seam { transition: opacity .8s ease; }
+  .inv.intro-open .intro__seam { animation: none; opacity: 0; }
+
+  .inv .hero .names .gold .ch { background: none !important; color: #fff1b8 !important; -webkit-text-fill-color: #fff1b8 !important; filter: none !important; animation: none !important; text-shadow: 0 0 2px #fff8dc, 0 0 8px rgba(255,236,170,.95), 0 0 18px rgba(255,205,90,.8), 0 2px 3px rgba(0,0,0,.8) !important; }
+  .hero .names .script::before, .hero .names .script::after { content: none !important; display: none !important; }
+
   @media (max-width: 1100px) {
     .content { padding: 0 96px; }
     .rail { width: 86px; }
@@ -1288,12 +1298,12 @@
     setTimeout(() => {
       root.querySelectorAll(".content .scene:not(.hero)").forEach((sc) => sc.classList.add("pg"));
       root.querySelectorAll(".rv, .split, .diyas, .pg").forEach((el) => io.observe(el));
-    }, reduce ? 0 : 2900);
-    setTimeout(() => { root.classList.add("intro-open"); }, reduce ? 0 : 2300);
+    }, reduce ? 0 : 1600);
+    setTimeout(() => { root.classList.add("intro-open"); }, reduce ? 0 : 700);
     setTimeout(() => {
       root.classList.add("revealed");
       document.documentElement.style.overflow = "";
-    }, reduce ? 0 : 4200);
+    }, reduce ? 0 : 3600);
   }
   const startOpen = () => {
     if (root.classList.contains("unlocking")) return;
