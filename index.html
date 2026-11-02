@@ -1365,13 +1365,6 @@
     }
     window.open("https://wa.me/?text=" + encodeURIComponent(shareText), "_blank", "noopener");
   };
-  const fab = document.createElement("button");
-  fab.className = "share-fab";
-  fab.type = "button";
-  fab.setAttribute("aria-label", "Share this invitation on WhatsApp");
-  fab.textContent = "💬";
-  root.appendChild(fab);
-  fab.addEventListener("click", doShare);
   root.querySelector("#shareBtn").addEventListener("click", doShare);
   const cells = {};
   root.querySelectorAll(".cd b").forEach((b) => { cells[b.dataset.u] = b; });
