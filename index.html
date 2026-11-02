@@ -1204,9 +1204,10 @@
   const scenes = [...root.querySelectorAll(".content .scene")];
   let cur = 0;
   const pick = () => {
-    const mid = innerHeight / 2;
-    const sc = scenes.find((s) => { const r = s.getBoundingClientRect(); return r.height && r.top <= mid && r.bottom > mid; });
-    const n = sc ? slot(sc) : cur;
+    const line = innerHeight * 0.65;
+    const end = scrollY + innerHeight >= document.documentElement.scrollHeight - innerHeight * 0.35;
+    const sc = scenes.find((s) => { const r = s.getBoundingClientRect(); return r.height && r.top <= line && r.bottom > line; });
+    const n = end ? 4 : sc ? slot(sc) : cur;
     if (n !== cur) { cur = n; show(n); }
   };
   addEventListener("scroll", pick, { passive: true });
