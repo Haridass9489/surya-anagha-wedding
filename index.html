@@ -215,9 +215,9 @@
   @keyframes flow { to { stroke-dashoffset: -16; } }
   .flow { stroke-dasharray: 2 6; animation: flow 1s linear infinite; }
 
-  .divine { position: fixed; left: 50%; top: 50%; width: min(760px, 120vw); transform: translate(-50%, -50%); opacity: .03; pointer-events: none; z-index: 0; mix-blend-mode: screen; animation: divineGlow 8s ease-in-out infinite; }
+  .divine { position: fixed; left: 50%; top: 50%; width: min(760px, 120vw); transform: translate(-50%, -50%); opacity: .008; pointer-events: none; z-index: 0; mix-blend-mode: screen; animation: divineGlow 8s ease-in-out infinite; }
   .divine svg { width: 100%; height: auto; display: block; }
-  @keyframes divineGlow { 50% { opacity: .06; } }
+  @keyframes divineGlow { 50% { opacity: .015; } }
   .dv-spin { transform-box: fill-box; transform-origin: center; animation: spin 90s linear infinite; }
   .dv-chakra { transform-box: fill-box; transform-origin: center; animation: spin 14s linear infinite; }
   .bokeh { position: fixed; inset: 0; pointer-events: none; z-index: 1; overflow: hidden; }
@@ -751,7 +751,7 @@
 .hero__bg::after,.content .ev-scene::after{background:none !important}
 .pfx{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
 .pfx i{position:absolute;inset:-3%;background:var(--p) center 25% / cover no-repeat;opacity:0;transition:opacity 1.6s ease;animation:kenburns 30s ease-in-out infinite alternate}
-.pfx i.on{opacity:.52}
+.pfx i.on{opacity:.34}
 .pfx i:nth-child(5){background-position:23% 25%}
 .ev-shade{-webkit-mask-image:none !important;mask-image:none !important;background:radial-gradient(ellipse 62% 42% at 50% 50%,rgba(20,4,10,.5),transparent 85%) !important}
 .pfx::after{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 75% 55% at 50% 50%,rgba(20,4,10,.72),rgba(20,4,10,.35) 75%,rgba(20,4,10,.5))}
