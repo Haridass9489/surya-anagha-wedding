@@ -1229,21 +1229,20 @@
     d.insertAdjacentHTML("beforeend", `<span class="door__strand s1"></span>`);
   });
   const rails = {
-    kerala: [["kerala-theyyam", "Theyyam · Kannur", "Shagil Kannur, CC BY-SA 3.0"], ["kerala-kathakali", "Kathakali", "Vis M, CC BY-SA 4.0"], ["kerala-snakeboat", "Snake Boat Race", "Manoj Karingamadathil, CC BY-SA 3.0"], ["kerala-houseboat", "Backwaters", "Vyacheslav Argenberg, CC BY 4.0"], ["kerala-beach", "Muzhappilangad Beach", "Shagil Kannur, CC BY-SA 4.0"], ["kerala-radha", "Radha Madhavam", "Raja Ravi Varma, public domain"]],
-    tn: [["tn-thanjavur", "Thanjavur Big Temple", "Rainer Halama (edited), CC BY-SA 4.0"], ["tn-meenakshi", "Meenakshi Temple", "Madhuranthakan Jagadeesan, CC BY-SA 4.0"], ["tn-bharatanatyam", "Bharatanatyam", "Augustus Binu, CC BY-SA 3.0"], ["tn-shoretemple", "Shore Temple", "Vyacheslav Argenberg, CC BY 4.0"], ["tn-hogenakkal", "Hogenakkal Falls", "Rangan Datta Wiki, CC BY-SA 4.0"]]
+    kerala: [["kerala-munnar", "1 aerial view of Munnar Tea Gardens Kerala India 2016", "Rajeev Rajagopalan from Bangalore, India, CC BY 2.0"], ["kerala-backwaters", "A top view of Ashtamudi backwaters", "Arunvrparavur, CC BY-SA 3.0"], ["kerala-thriprayar", "Thriprayar Rama temple, Thrissur district, Kerala aerial 09 21 2022", "Ms Sarah Welch, CC0"], ["kerala-jatayu", "Drone view of Jatayu Earth Center", "KalkiRaj, CC BY-SA 4.0"], ["kerala-athirappilly", "Bird's eye view of Athirappilly Waterfalls", "Appu Lenin, CC BY-SA 4.0"]],
+    tn: [["tn-meenakshi", "Aerial view of Madurai Meenakshi amman temple", "Prakashkumar, CC BY-SA 4.0"], ["tn-shoretemple", "Shore temple ariel", "Karthik Easvur, CC BY-SA 4.0"], ["tn-hogenakkal", "An aerial view of coracle jetty", "Thamizhpparithi Maari, CC BY-SA 3.0"], ["tn-rameswaram", "Rameswaram Aerial view from Pamban Bridge", "Achuudayasanan, CC BY-SA 4.0"], ["tn-auroville", "The drone view of Auroville", "KalkiRaj, CC0"]]
   };
   const photoUrl = {
-      "kerala-theyyam": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Theyyam_of_Kerala_by_Shagil_Kannur_2024_%2830%29.jpg/500px-Theyyam_of_Kerala_by_Shagil_Kannur_2024_%2830%29.jpg",
-      "kerala-kathakali": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Kathakali_performer_%282023%29_03.jpg/500px-Kathakali_performer_%282023%29_03.jpg",
-      "kerala-snakeboat": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/Nehru_Trophy_Boat_Race_2012_7791.JPG/500px-Nehru_Trophy_Boat_Race_2012_7791.JPG",
-      "kerala-houseboat": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Kerala_backwaters%2C_Houseboats%2C_India.jpg/500px-Kerala_backwaters%2C_Houseboats%2C_India.jpg",
-      "tn-thanjavur": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Brihadisvara_Temple_during_Maha_Shivaratri-WUS03611_%28edit%29.jpg/500px-Brihadisvara_Temple_during_Maha_Shivaratri-WUS03611_%28edit%29.jpg",
-      "tn-meenakshi": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/S-TN-34_Meenakshi_Amman_Temple_South_Gopuram_enriched_with_delicate_Stucco_works.jpg/500px-S-TN-34_Meenakshi_Amman_Temple_South_Gopuram_enriched_with_delicate_Stucco_works.jpg",
-      "tn-bharatanatyam": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Bharata_Natyam_Performance_DS.jpg/500px-Bharata_Natyam_Performance_DS.jpg",
-      "tn-shoretemple": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Mamallapuram%2C_Shore_Temple%2C_India.jpg/500px-Mamallapuram%2C_Shore_Temple%2C_India.jpg",
-      "tn-hogenakkal": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Hogenakkal_Falls_9.jpg/500px-Hogenakkal_Falls_9.jpg",
-      "kerala-beach": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Muzhappilangad_Beach_by_Shahil_Kannur_4.jpg/500px-Muzhappilangad_Beach_by_Shahil_Kannur_4.jpg",
-      "kerala-radha": "https://upload.wikimedia.org/wikipedia/commons/1/10/Radha_Madhavam.jpg"
+      "kerala-munnar": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/1_aerial_view_of_Munnar_Tea_Gardens_Kerala_India_2016.jpg/500px-1_aerial_view_of_Munnar_Tea_Gardens_Kerala_India_2016.jpg",
+      "kerala-backwaters": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/A_top_view_of_Ashtamudi_backwaters.jpg/500px-A_top_view_of_Ashtamudi_backwaters.jpg",
+      "kerala-thriprayar": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Thriprayar_Rama_temple%2C_Thrissur_district%2C_Kerala_aerial_09_21_2022.jpg/500px-Thriprayar_Rama_temple%2C_Thrissur_district%2C_Kerala_aerial_09_21_2022.jpg",
+      "kerala-jatayu": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Drone_view_of_Jatayu_Earth_Center.jpg/500px-Drone_view_of_Jatayu_Earth_Center.jpg",
+      "kerala-athirappilly": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Bird%27s_eye_view_of_Athirappilly_Waterfalls.jpg/500px-Bird%27s_eye_view_of_Athirappilly_Waterfalls.jpg",
+      "tn-meenakshi": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Aerial_view_of_Madurai_Meenakshi_amman_temple.jpg/500px-Aerial_view_of_Madurai_Meenakshi_amman_temple.jpg",
+      "tn-shoretemple": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/Shore_temple_ariel.jpg/500px-Shore_temple_ariel.jpg",
+      "tn-hogenakkal": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/An_aerial_view_of_coracle_jetty.JPG/500px-An_aerial_view_of_coracle_jetty.JPG",
+      "tn-rameswaram": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Rameswaram_Aerial_view_from_Pamban_Bridge.jpg/500px-Rameswaram_Aerial_view_from_Pamban_Bridge.jpg",
+      "tn-auroville": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/The_drone_view_of_Auroville.jpg/500px-The_drone_view_of_Auroville.jpg"
   };
   const railItem = ([f, c]) => `<figure class="rail__item"><img src="${photoUrl[f]}" alt="" loading="lazy"></figure>`;
   root.querySelector(".rail--l .rail__track").innerHTML = rails.kerala.map(railItem).join("").repeat(2);
