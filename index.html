@@ -581,6 +581,21 @@
   .blessing, .msg, .side p, .side ul, .detail, .gp li, .foot { color: #fff6e3 !important; }
   .side .addr, .detail em, .datebig .mon { color: #f6e2bd !important; }
 
+  .side { padding: 22px 18px 40px; }
+  .side__toran { width: min(300px, 86%); margin: 0 auto -6px; filter: drop-shadow(0 4px 8px rgba(0,0,0,.5)); }
+  .side__toran svg { width: 100%; height: auto; display: block; overflow: visible; }
+  .side .side__art { width: min(260px, 74%); }
+  .side h3 { font-size: clamp(52px, 7.5vw, 76px); }
+  .side__orn { display: flex; gap: 16px; justify-content: center; margin-top: 12px; color: #ffd36b; font-size: 17px; }
+  .side__orn span { display: inline-block; text-shadow: 0 0 10px rgba(255,205,90,.85); animation: twinkle 3s ease-in-out infinite; }
+  .side__orn span:nth-child(2) { animation-delay: -1s; color: #ffbe5c; }
+  .side__orn span:nth-child(3) { animation-delay: -2s; }
+  .fam-hearts { position: absolute; inset: 0; pointer-events: none; z-index: 2; }
+  .fam-hearts i { position: absolute; left: 50%; bottom: 30%; font-style: normal; color: #fb7185; font-size: 14px; text-shadow: 0 0 10px #fb7185; animation: heartUp 4s ease-in infinite; }
+  .fam-hearts i:nth-child(2) { left: 30%; font-size: 11px; animation-delay: -1.3s; }
+  .fam-hearts i:nth-child(3) { left: 68%; font-size: 12px; animation-delay: -2.6s; }
+  @keyframes heartUp { 0% { transform: translateY(0) scale(.6); opacity: 0; } 20% { opacity: 1; } 100% { transform: translateY(-100px) scale(1.1); opacity: 0; } }
+
   @media (max-width: 1100px) {
     .content { padding: 0 96px; }
     .rail { width: 86px; }
@@ -713,19 +728,23 @@
       </div>
       <div class="fams__grid">
         <div class="side side--tn rv" data-fx="left">
+          <div class="side__toran art" data-art="toran" aria-hidden="true"></div>
           <div class="side__art art" data-art="lamp"></div>
           <p class="kicker">The Groom</p>
           <h3 class="script gold-text">Surya P</h3>
+          <div class="side__orn" aria-hidden="true"><span>❀</span><span>✦</span><span>❀</span></div>
         </div>
         <div class="divider" aria-hidden="true">
           <span class="vline"></span>
-          <div class="fam-knot rv" data-fx="zoom" style="--d:.5s"><div class="art" data-art="lotus"></div><span class="fam-amp script">&amp;</span></div>
+          <div class="fam-knot rv" data-fx="zoom" style="--d:.5s"><span class="fam-hearts" aria-hidden="true"><i>♥</i><i>♥</i><i>♥</i></span><div class="art" data-art="lotus"></div><span class="fam-amp script">&amp;</span></div>
           <span class="vline"></span>
         </div>
         <div class="side side--kl rv" data-fx="right" style="--d:.2s">
+          <div class="side__toran art" data-art="toran" aria-hidden="true"></div>
           <div class="side__art art" data-art="kerala"></div>
           <p class="kicker">The Bride</p>
           <h3 class="script gold-text">Anagha K</h3>
+          <div class="side__orn" aria-hidden="true"><span>❀</span><span>✦</span><span>❀</span></div>
         </div>
       </div>
     </section>
