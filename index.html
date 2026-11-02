@@ -626,6 +626,17 @@
   .families-lite .kt { margin: 0 auto; }
   .content .quotes { padding-top: 34px; }
 
+  .inv .intro { background: transparent; padding: 0; overflow: hidden; }
+  .intro__half { position: absolute; top: 0; bottom: 0; width: 50.5%; overflow: hidden; transition: transform 1.7s cubic-bezier(.7,0,.2,1); background: radial-gradient(circle, rgba(255,255,255,.55) 1px, transparent 1.7px) 0 0 / 20px 20px, linear-gradient(90deg, #8a5a1c 0%, #c99a45 30%, #f7e2b0 75%, #fff1c9 100%); box-shadow: inset 0 0 120px rgba(90,40,0,.45); }
+  .intro__half--l { left: 0; }
+  .intro__half--r { right: 0; transform: scaleX(-1); }
+  .intro__half::after { content: ""; position: absolute; inset: 0; background: linear-gradient(110deg, transparent 35%, rgba(255,255,255,.55) 48%, transparent 60%); background-size: 260% 100%; animation: gateSheen 2.4s ease-in-out infinite; }
+  .intro-open .intro__half--l { transform: translateX(-102%); }
+  .intro-open .intro__half--r { transform: scaleX(-1) translateX(-102%); }
+  .intro__seam { position: absolute; left: 50%; top: 0; bottom: 0; width: 4px; margin-left: -2px; background: #fffaf0; box-shadow: 0 0 30px 12px rgba(255,236,170,.95), 0 0 90px 40px rgba(255,200,90,.6); animation: seam 1.6s ease-in-out infinite; }
+  .intro-open .intro__seam { animation: seamOpen 1.7s cubic-bezier(.7,0,.2,1) forwards; }
+  @keyframes seamOpen { 0% { opacity: 1; transform: scaleX(1); } 35% { opacity: 1; transform: scaleX(40); } 100% { opacity: 0; transform: scaleX(300); } }
+
   @media (max-width: 1100px) {
     .content { padding: 0 96px; }
     .rail { width: 86px; }
@@ -705,11 +716,9 @@
   </section>
 
   <div class="intro" aria-hidden="true">
-    <div class="intro__glow"></div>
-    <div class="intro__ring"></div>
-    <p class="intro__welcome">Welcome to the wedding of</p>
-    <p class="intro__names script"><span>Surya</span><b>♥</b><span>Anagha</span></p>
-    <p class="intro__date">20 · 11 · 2026</p>
+    <div class="intro__half intro__half--l"></div>
+    <div class="intro__half intro__half--r"></div>
+    <div class="intro__seam"></div>
   </div>
 
   <main class="content">
@@ -1256,12 +1265,12 @@
     setTimeout(() => {
       root.querySelectorAll(".content .scene:not(.hero)").forEach((sc) => sc.classList.add("pg"));
       root.querySelectorAll(".rv, .split, .diyas, .pg").forEach((el) => io.observe(el));
-    }, reduce ? 0 : 4300);
-    setTimeout(() => { root.classList.add("intro-out"); }, reduce ? 0 : 4000);
+    }, reduce ? 0 : 2900);
+    setTimeout(() => { root.classList.add("intro-open"); }, reduce ? 0 : 2300);
     setTimeout(() => {
       root.classList.add("revealed");
       document.documentElement.style.overflow = "";
-    }, reduce ? 0 : 5100);
+    }, reduce ? 0 : 4200);
   }
   const startOpen = () => {
     if (root.classList.contains("unlocking")) return;
