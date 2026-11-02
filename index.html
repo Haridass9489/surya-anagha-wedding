@@ -670,6 +670,25 @@
   .inv .hero .names .gold .ch { background: none !important; color: #fff1b8 !important; -webkit-text-fill-color: #fff1b8 !important; filter: none !important; animation: none !important; text-shadow: 0 0 2px #fff8dc, 0 0 8px rgba(255,236,170,.95), 0 0 18px rgba(255,205,90,.8), 0 2px 3px rgba(0,0,0,.8) !important; }
   .hero .names .script::before, .hero .names .script::after { content: none !important; display: none !important; }
 
+  .inv.intro-open .intro__half--l, .inv.intro-open .intro__half--r { transform: none !important; opacity: 1 !important; transition: none !important; }
+  .inv.intro-open .intro__half--l { animation: curtainL 3s cubic-bezier(.5,0,.25,1) forwards !important; }
+  .inv.intro-open .intro__half--r { animation: curtainR 3s cubic-bezier(.5,0,.25,1) forwards !important; }
+  @keyframes curtainL {
+    0%   { clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); transform: scaleX(1) skewX(0); opacity: 1; }
+    30%  { clip-path: polygon(0 0, 100% 0, 62% 100%, 0 100%); transform: scaleX(.96) skewX(-1.5deg); opacity: 1; }
+    65%  { clip-path: polygon(0 0, 46% 0, 16% 100%, 0 100%); transform: scaleX(.8) skewX(-1deg); opacity: 1; }
+    88%  { clip-path: polygon(0 0, 16% 0, 6% 100%, 0 100%); transform: scaleX(.7) skewX(0); opacity: 1; }
+    100% { clip-path: polygon(0 0, 12% 0, 5% 100%, 0 100%); transform: scaleX(.68); opacity: 0; }
+  }
+  @keyframes curtainR {
+    0%   { clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); transform: scaleX(1) skewX(0); opacity: 1; }
+    30%  { clip-path: polygon(0 0, 100% 0, 100% 100%, 38% 100%); transform: scaleX(.96) skewX(1.5deg); opacity: 1; }
+    65%  { clip-path: polygon(54% 0, 100% 0, 100% 100%, 84% 100%); transform: scaleX(.8) skewX(1deg); opacity: 1; }
+    88%  { clip-path: polygon(84% 0, 100% 0, 100% 100%, 94% 100%); transform: scaleX(.7) skewX(0); opacity: 1; }
+    100% { clip-path: polygon(88% 0, 100% 0, 100% 100%, 95% 100%); transform: scaleX(.68); opacity: 0; }
+  }
+  .inv .intro__half--l::before, .inv .intro__half--r::before { z-index: 1; }
+
   @media (max-width: 1100px) {
     .content { padding: 0 96px; }
     .rail { width: 86px; }
