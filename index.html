@@ -564,6 +564,10 @@
 
   .hero .kicker, .hero .kicker .ch, .hero .kicker::before, .hero .kicker::after { color: #ffb347 !important; -webkit-text-fill-color: #ffb347 !important; text-shadow: 0 1px 2px rgba(0,0,0,.9), 0 0 12px rgba(255,150,40,.95), 0 0 28px rgba(255,100,20,.6) !important; }
 
+  .ev-bg, .ev-shade { -webkit-mask-image: none; mask-image: none; }
+  .ev-photo { -webkit-mask-image: linear-gradient(90deg, #000 0%, rgba(0,0,0,.85) 22%, transparent 42%, transparent 58%, rgba(0,0,0,.85) 78%, #000 100%); mask-image: linear-gradient(90deg, #000 0%, rgba(0,0,0,.85) 22%, transparent 42%, transparent 58%, rgba(0,0,0,.85) 78%, #000 100%); -webkit-mask-composite: source-over; mask-composite: add; }
+  .content .ev-scene::after { content: ""; position: absolute; inset: 0; left: 0; bottom: 0; width: auto; transform: none; opacity: 1; z-index: 0; pointer-events: none; display: block !important; background: linear-gradient(#240a12 0%, rgba(36,10,18,.6) 12%, transparent 26%, transparent 74%, rgba(36,10,18,.6) 88%, #240a12 100%); }
+
   @media (max-width: 1100px) {
     .content { padding: 0 96px; }
     .rail { width: 86px; }
@@ -655,7 +659,6 @@
       <div class="bell bell--l art" data-art="bell" aria-hidden="true"></div>
       <div class="bell bell--r art" data-art="bell" aria-hidden="true"></div>
       <div class="hero__mandala" aria-hidden="true"></div>
-      <p class="kicker split">|| SREE PERUMAL THUNAI ||</p>
       <p class="blessing split words" style="--d:.4s">With the blessings of our parents, elders and well-wishers, we are delighted to invite you to celebrate the wedding of</p>
       <h1 class="names">
         <span class="script split gold" style="--d:.2s">Surya P</span>
@@ -766,14 +769,15 @@
     let s = `<svg viewBox="0 0 1200 700" preserveAspectRatio="xMidYMid slice"><defs>
       <radialGradient id="pwFire" cx="50%" cy="100%" r="65%"><stop offset="0" stop-color="#f97316" stop-opacity=".55"/><stop offset="1" stop-color="#f97316" stop-opacity="0"/></radialGradient>
       <linearGradient id="pwPil" x1="0" x2="1"><stop offset="0" stop-color="#7a4a14"/><stop offset=".5" stop-color="#e6c98f"/><stop offset="1" stop-color="#7a4a14"/></linearGradient></defs>
-      <rect width="1200" height="700" fill="url(#pwFire)"/><rect x="0" y="96" width="1200" height="18" fill="#c99a45"/>`;
+      <rect width="1200" height="700" fill="url(#pwFire)"/>`;
     [60, 260, 940, 1140].forEach((x) => {
       s += `<rect x="${x - 18}" y="114" width="36" height="526" fill="url(#pwPil)"/><rect x="${x - 28}" y="108" width="56" height="16" fill="#c99a45"/><rect x="${x - 28}" y="630" width="56" height="20" fill="#c99a45"/><path d="M${x - 18} 250h36M${x - 18} 420h36" stroke="#5a3a10" stroke-width="3"/><circle cx="${x}" cy="335" r="10" fill="#e11d48"/>`;
     });
     s += `<path d="M60 114Q160 210 260 114M940 114Q1040 210 1140 114" fill="none" stroke="#f59e0b" stroke-width="12" stroke-dasharray=".1 16" stroke-linecap="round"/>`;
     for (let i = 0; i < 24; i++) {
       const len = 3 + (i % 3);
-      s += `<g transform="translate(${25 + i * 50} 114)"><g class="strand" style="animation-delay:${-i * 0.27}s"><path d="M0 0v${len * 12 + 6}" stroke="#c2410c"/>${Array.from({ length: len }, (_, k) => `<circle cy="${10 + k * 12}" r="6" fill="${k % 2 ? "#fb923c" : "#f59e0b"}"/>`).join("")}<circle cy="${len * 12 + 8}" r="3.5" fill="#fff"/></g></g>`;
+      s += `<g transform="translate(${25 + i * 50} 114)" opacity=".5">`;
+      s += `<g class="strand" style="animation-delay:${-i * 0.27}s"><path d="M0 0v${len * 12 + 6}" stroke="#c2410c"/>${Array.from({ length: len }, (_, k) => `<circle cy="${10 + k * 12}" r="6" fill="${k % 2 ? "#fb923c" : "#f59e0b"}"/>`).join("")}<circle cy="${len * 12 + 8}" r="3.5" fill="#fff"/></g></g>`;
     }
     s += `<g class="sway"><path d="M0 700q40-200 10-380q60 120 20 380z" fill="#15803d"/><path d="M30 700q-10-220 60-360q0 180-20 360z" fill="#16a34a"/></g>
       <g class="sway" style="animation-delay:-2s"><path d="M1200 700q-40-200-10-380q-60 120-20 380z" fill="#15803d"/><path d="M1170 700q10-220-60-360q0 180 20 360z" fill="#16a34a"/></g>`;
@@ -794,7 +798,7 @@
       const dy = (dx) => (dx === 0 ? 25 : Math.abs(dx) === 30 ? 19 : 0);
       s += `<g transform="translate(${x} 0)"><g class="strand" style="animation-delay:${-k}s"><path d="M0 0v120" stroke="#c99a45" stroke-width="3"/><path d="M-60 150q60 50 120 0" fill="none" stroke="#e6c98f" stroke-width="5"/><path d="M-40 132q40 34 80 0" fill="none" stroke="#e6c98f" stroke-width="4"/><circle cy="120" r="10" fill="#e6c98f"/>${[-60, -30, 0, 30, 60].map((dx) => `<path d="M${dx} ${150 + dy(dx)}v-14" stroke="#e6c98f" stroke-width="3"/><circle class="rm-tw" cx="${dx}" cy="${134 + dy(dx)}" r="6" fill="#fff7d6"/>`).join("")}${[-45, -15, 15, 45].map((dx) => `<path d="M${dx - 5} 178l5 22 5-22z" fill="#bae6fd" opacity=".8"/>`).join("")}</g></g>`;
     });
-    const arch = "M380 700V520a220 200 0 0 1 440 0v180";
+    const arch = "M170 700V430a430 340 0 0 1 860 0v270";
     s += `<path d="${arch}" fill="none" stroke="#14532d" stroke-width="8"/><path d="${arch}" fill="none" stroke="#e11d48" stroke-width="18" stroke-dasharray=".1 24" stroke-linecap="round"/><path d="${arch}" fill="none" stroke="#f9a8d4" stroke-width="14" stroke-dasharray=".1 24" stroke-dashoffset="12" stroke-linecap="round"/><path d="${arch}" fill="none" stroke="#fff" stroke-width="7" stroke-dasharray=".1 24" stroke-dashoffset="6" stroke-linecap="round"/>`;
     [80, 240, 960, 1120].forEach((x) => {
       s += `<path d="M${x - 70} 660Q${x} 600 ${x + 70} 640Q${x} 690 ${x - 70} 660z" fill="#16a34a"/><ellipse cx="${x}" cy="650" rx="16" ry="8" fill="#fff"/><circle cx="${x - 30}" cy="652" r="6" fill="#ea580c"/><circle cx="${x + 30}" cy="644" r="6" fill="#facc15"/><path class="steam" d="M${x} 630q-6-8 0-16t0-16" stroke="#fff" stroke-width="2" fill="none" opacity="0"/>`;
