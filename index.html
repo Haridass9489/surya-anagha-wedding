@@ -621,6 +621,11 @@
   @keyframes introPop { to { transform: scale(1); } }
   @media (prefers-reduced-motion: reduce) { .intro { display: none; } }
 
+  .names .role { display: block; margin: 6px 0 -.1em; font-family: "Cinzel", serif; font-size: clamp(11px, 1.8vw, 14px); letter-spacing: .38em; text-transform: uppercase; color: #ffbe5c; -webkit-text-fill-color: #ffbe5c; text-shadow: 0 1px 2px rgba(0,0,0,.9), 0 0 10px rgba(255,160,50,.75), 0 0 22px rgba(255,110,20,.4); }
+  .content .families-lite { padding: 26px 20px 10px; }
+  .families-lite .kt { margin: 0 auto; }
+  .content .quotes { padding-top: 34px; }
+
   @media (max-width: 1100px) {
     .content { padding: 0 96px; }
     .rail { width: 86px; }
@@ -722,8 +727,10 @@
       <div class="hero__mandala" aria-hidden="true"></div>
       <p class="blessing split words" style="--d:.4s">With the blessings of our parents, elders and well-wishers, we are delighted to invite you to celebrate the wedding of</p>
       <h1 class="names">
+        <span class="role rv" data-fx="up" style="--d:.1s">The Groom</span>
         <span class="script split gold" style="--d:.2s">Surya P</span>
         <span class="amp rv" data-fx="zoom" style="--d:.6s">&amp;</span>
+        <span class="role rv" data-fx="up" style="--d:.7s">The Bride</span>
         <span class="script split gold" style="--d:.8s">Anagha K</span>
       </h1>
       <div class="orn rv" data-fx="zoom" style="--d:.9s">❦</div>
@@ -738,9 +745,7 @@
 
     <div class="band" aria-hidden="true"><div class="band__track"></div></div>
 
-    <section class="scene">
-      <p class="kicker rv" data-fx="up">Two families · One celebration</p>
-      <h2 class="h2 script split gold">Our Families</h2>
+    <section class="scene families-lite">
       <div class="kt rv" data-fx="up" style="--d:.2s" role="img" aria-label="Kerala loves Tamil Nadu">
         <svg class="kt__garland" viewBox="0 0 400 70" aria-hidden="true">
           <path d="M6 8Q200 86 394 8" fill="none" stroke="#16a34a" stroke-width="3" stroke-dasharray="8 10"/>
@@ -757,27 +762,6 @@
           <svg class="kt__icon" viewBox="0 0 48 48" aria-hidden="true"><path d="M10 46V38h28v8zM12 38l3-8h18l3 8zM15 30l2-7h14l2 7zM17 23l2-6h10l2 6zM19 17l2-5h6l2 5zM21 12q3-5 6 0z" fill="#f59e0b"/><path d="M24 7V3" stroke="#fde047" stroke-width="2" stroke-linecap="round"/><path d="M20 46v-5a4 4 0 0 1 8 0v5z" fill="#5a1a26"/></svg>
           <span class="kt__word gold-text">Tamil Nadu</span>
           <small>Land of Temples</small>
-        </div>
-      </div>
-      <div class="fams__grid">
-        <div class="side side--tn rv" data-fx="left">
-          <div class="side__toran art" data-art="toran" aria-hidden="true"></div>
-          <div class="side__art art" data-art="lamp"></div>
-          <p class="kicker">The Groom</p>
-          <h3 class="script gold-text">Surya P</h3>
-          <div class="side__orn" aria-hidden="true"><span>❀</span><span>✦</span><span>❀</span></div>
-        </div>
-        <div class="divider" aria-hidden="true">
-          <span class="vline"></span>
-          <div class="fam-knot rv" data-fx="zoom" style="--d:.5s"><span class="fam-hearts" aria-hidden="true"><i>♥</i><i>♥</i><i>♥</i></span><div class="art" data-art="lotus"></div><span class="fam-amp script">&amp;</span></div>
-          <span class="vline"></span>
-        </div>
-        <div class="side side--kl rv" data-fx="right" style="--d:.2s">
-          <div class="side__toran art" data-art="toran" aria-hidden="true"></div>
-          <div class="side__art art" data-art="kerala"></div>
-          <p class="kicker">The Bride</p>
-          <h3 class="script gold-text">Anagha K</h3>
-          <div class="side__orn" aria-hidden="true"><span>❀</span><span>✦</span><span>❀</span></div>
         </div>
       </div>
     </section>
